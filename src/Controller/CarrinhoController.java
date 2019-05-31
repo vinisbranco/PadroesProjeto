@@ -26,12 +26,12 @@ public class CarrinhoController {
 		produtos.add(p6);
 	}
 	
-	public void criaProduto(String nome, int preco) {
+	public void criaNovoProduto(String nome, int preco) {
 		Produto p = new Produto(nome, preco);
 		produtos.add(p);
 	}
 	
-	public void addProduto(Produto produto) {
+	public void addProdutoCarrinho(Produto produto) {
 		ArrayList<Produto> p = Carrinho.getProdutos();
 		p.add(produto);
 		Carrinho.setProdutos(p);
