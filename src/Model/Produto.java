@@ -9,7 +9,7 @@ public class Produto {
 		this.nome = nome;
 		this.preco = preco;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
