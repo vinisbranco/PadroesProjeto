@@ -1,11 +1,16 @@
 package Model;
+import java.util.Observable;
 
+import View.UICarrinho;
+
+import java.awt.List;
 import java.util.ArrayList;
 
-public class Carrinho {
+public class Carrinho extends Observable {
 
 	private static volatile Carrinho instance;
-	
+	private static int count;
+	private ArrayList<ModelListener> models;
 	private static ArrayList<Produto> produtos;
 	private static Cliente cliente;
 	private static int precoFinal;
@@ -13,6 +18,7 @@ public class Carrinho {
 	private Carrinho(Cliente cliente, int precoFinal) {
 		this.cliente = cliente;
 		this.precoFinal = precoFinal;
+		models = new ArrayList<ModelListener>();
 	}
 	
 	public static Carrinho getInstance(Cliente cli, int precoFin) {
@@ -26,17 +32,40 @@ public class Carrinho {
 		return instance;
 	}
 	
+	public void setValor(int v) {
+		count = v;
+		for(ModelListener m: models) {
+			m.valorAlterado(count);
+		}
+	}
+	
 	public static ArrayList<Produto> getProdutos() {
 		return produtos;
 	}
-	public static void setProdutos(ArrayList<Produto> produtos) {
+	public void setProdutos(ArrayList<Produto> produtos) {
 		Carrinho.produtos = produtos;
+		setChanged();
+        notifyObservers();
+		
 	}
 	public static int getPrecoFinal() {
 		return precoFinal;
 	}
-	public static void setPrecoFinal(int precoFinal) {
+	public void setPrecoFinal(int precoFinal) {
 		Carrinho.precoFinal = precoFinal;
+		setChanged();
+        notifyObservers();
+	}
+	
+	public void incrementaValor() {
+		count++;
+		for(ModelListener m: models) {
+			m.valorAlterado(count);
+		}
+	}
+	
+	public void addModelListener(ModelListener l) {
+		models.add(l);
 	}
 	
 @Override
@@ -44,6 +73,7 @@ public class Carrinho {
 		// TODO Auto-generated method stub
 		return "produtos: "+produtos.toString() + " cliente: " +cliente+ " Total: " + precoFinal; 
 	}
+
 	
 	
 

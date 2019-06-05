@@ -1,14 +1,19 @@
 package Controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import Model.Carrinho;
 import Model.Produto;
+import View.UICarrinho;
 
-public class CarrinhoController {
+public class CarrinhoController implements ActionListener {
 	
 	public static ArrayList<Produto> produtos;
+	public Carrinho carrinho;
+	private UICarrinho view;
 
 	public CarrinhoController() {
 		produtos = new ArrayList<Produto>();
@@ -34,17 +39,33 @@ public class CarrinhoController {
 	public void addProdutoCarrinho(Produto produto) {
 		ArrayList<Produto> p = Carrinho.getProdutos();
 		p.add(produto);
-		Carrinho.setProdutos(p);
+		carrinho.setProdutos(p);
 		int aux = Carrinho.getPrecoFinal();
 		aux += produto.getPreco();
-		Carrinho.setPrecoFinal(aux);
+		carrinho.setPrecoFinal(aux);
 	}
 	
 	public void iniciaCarrinho() {
 		if(ClienteController.cliente != null) {
-			Carrinho.getInstance(ClienteController.cliente, 0);
+			carrinho = Carrinho.getInstance(ClienteController.cliente, 0);
 		}else {
-			new Exception("Cliente não possui cadastro");
+			new Exception("Cliente nï¿½o possui cadastro");
 		}
+	}
+
+	public void associaModel(Carrinho c) {
+		carrinho = c;
+	}
+	public void associaView(UICarrinho c) {
+		view = c;
+		carrinho.addModelListener(view);
+	}
+	
+	public void inicializaModel(int v) {
+		carrinho.setValor(v);
+	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		carrinho.incrementaValor();
 	}
 }
