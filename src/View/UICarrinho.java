@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Controller.CarrinhoController;
-import Model.Carrinho;
-import Model.ModelListener;
+import DTO.Carrinho;
+import DTO.ModelListener;
 
 public class UICarrinho implements ModelListener {
 	private static JTextField campoTexto;

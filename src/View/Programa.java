@@ -1,8 +1,8 @@
 package View;
 
 import Controller.CarrinhoController;
-import Model.Carrinho;
-import Model.Cliente;
+import DTO.Carrinho;
+import DTO.Cliente;
 
 public class Programa {
 

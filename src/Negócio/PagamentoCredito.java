@@ -1,7 +1,7 @@
 package Negócio;
 
-import Model.Carrinho;
-import Model.Cliente;
+import DTO.Carrinho;
+import DTO.Cliente;
 
 public class PagamentoCredito implements FormaPagamento {
 
@@ -11,8 +11,8 @@ public class PagamentoCredito implements FormaPagamento {
 
 	@Override
 	public double finalizaCompra(Cliente cliente, Carrinho c) {
-		// TODO Auto-generated method stub
-		return 0;
+		Carrinho.setPago(true);
+		return Carrinho.getPrecoFinal();
 	}
 
 }

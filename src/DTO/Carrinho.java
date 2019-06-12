@@ -1,4 +1,4 @@
-package Model;
+package DTO;
 import java.util.Observable;
 
 import View.UICarrinho;
@@ -14,11 +14,13 @@ public class Carrinho extends Observable {
 	private static ArrayList<Produto> produtos;
 	private static Cliente cliente;
 	private static int precoFinal;
+	private static boolean pago;
 	
 	private Carrinho(Cliente cliente, int precoFinal) {
 		this.cliente = cliente;
 		this.precoFinal = precoFinal;
 		models = new ArrayList<ModelListener>();
+		pago = false;
 	}
 	
 	public static Carrinho getInstance(Cliente cli, int precoFin) {
@@ -66,6 +68,14 @@ public class Carrinho extends Observable {
 	
 	public void addModelListener(ModelListener l) {
 		models.add(l);
+	}
+	
+	public static boolean isPago() {
+		return pago;
+	}
+	
+	public static void setPago(boolean pago) {
+		Carrinho.pago = pago;
 	}
 	
 @Override

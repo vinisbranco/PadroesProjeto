@@ -1,12 +1,12 @@
 package Controller;
 
-import java.awt.event.ActionEvent;
+import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import Model.Carrinho;
-import Model.Produto;
+import DTO.Carrinho;
+import DTO.Produto;
 import View.UICarrinho;
 
 public class CarrinhoController implements ActionListener {
@@ -49,7 +49,7 @@ public class CarrinhoController implements ActionListener {
 		if(ClienteController.cliente != null) {
 			carrinho = Carrinho.getInstance(ClienteController.cliente, 0);
 		}else {
-			new Exception("Cliente n�o possui cadastro");
+			new Exception("Cliente nao possui cadastro");
 		}
 	}
 
