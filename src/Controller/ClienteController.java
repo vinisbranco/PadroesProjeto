@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Cliente;
+import DTO.Cliente;
 
 public class ClienteController {
 

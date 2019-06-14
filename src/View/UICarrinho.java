@@ -22,9 +22,9 @@ import javax.swing.ListModel;
 import com.sun.prism.paint.Color;
 
 import Controller.CarrinhoController;
-import Model.Carrinho;
-import Model.ModelListener;
-import Model.Produto;
+import DTO.Produto;
+import DTO.Carrinho;
+import DTO.ModelListener;
 
 public class UICarrinho implements ModelListener {
 	private static JTextField campoTexto;

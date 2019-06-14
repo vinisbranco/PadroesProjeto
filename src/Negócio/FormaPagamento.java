@@ -1,7 +1,7 @@
 package Negócio;
 
-import Model.Carrinho;
-import Model.Cliente;
+import DTO.Carrinho;
+import DTO.Cliente;
 
 public interface FormaPagamento {
 	double finalizaCompra(Cliente cliente, Carrinho c);
