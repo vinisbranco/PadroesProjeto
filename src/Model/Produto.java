@@ -24,8 +24,7 @@ public class Produto {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return nome + "/" + preco;
+		return nome + ": R$" + preco;
 	}
 
 }
