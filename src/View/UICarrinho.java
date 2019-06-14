@@ -48,19 +48,7 @@ public class UICarrinho implements ModelListener {
 		janela.setSize(2000, 2000);
 
 		
-		ArrayList<Produto> produtos = new ArrayList<Produto>();
-		Produto p = new Produto("TV Sony 40'", 2000);
-		produtos.add(p);
-		Produto p2 = new Produto("Sofa", 1400);
-		produtos.add(p2);
-		Produto p3 = new Produto("Armario", 2000);
-		produtos.add(p3);
-		Produto p4 = new Produto("Geladeira Brastemp", 3000);
-		produtos.add(p4);
-		Produto p5 = new Produto("Notebook Dell", 2500);
-		produtos.add(p5);
-		Produto p6 = new Produto("Torradeira", 80);
-		produtos.add(p6);
+		ArrayList<Produto> produtos = CarrinhoController.produtos;
 		
 		String[] produtosData = new String[6];
 		
