@@ -81,7 +81,7 @@ public class Carrinho extends Observable {
 @Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "produtos: "+produtos.toString() + " cliente: " +cliente+ " Total: " + precoFinal; 
+		return "produtos: "+produtos.toString() + " cliente: " +cliente.toString()+ " Total: " + precoFinal; 
 	}
 
 	
